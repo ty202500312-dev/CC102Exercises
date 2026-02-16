@@ -8,7 +8,7 @@ int main (){
         const int prod = 5;
         const int salePer = 4;
 
-        double sales[prod][salePer]={0};
+        double sales[prod][salePer] = {0};
         int SalePerson, Product;
         double amount;
         char aga;
@@ -25,44 +25,51 @@ int main (){
 
             sales[Product - 1][SalePerson - 1] += amount;
 
-            cout << endl << "Add another Entry? (y/n):";
+            cout << endl << "Add another Entry? (y/n): ";
             cin >> aga;
+
         }while (aga == 'y' || aga == 'Y');
 
-        cout << endl << "Product    ";
+        cout << "\n\t\tSalesperson\n";
+        cout << "Product    ";
         for (int i = 0; i < salePer; i++)
             cout << "Sale" << i + 1 << "     ";
-            cout <<"Total " << endl;
+        cout << "Total" << endl;
 
-            double GraTot = 0;
+        cout << "-------------------------------------------------------------\n";
 
-            for (int j = 0; j < prod; j++){
-                double rowTot = 0;
-                cout << j + 1 << "     ";
+        double GraTot = 0;
 
-                for (int k = 0; k < salePer; k++){
-                    cout << sales[j][k] << "          ";
-                    rowTot += sales[j][k];
-                }
+        for (int j = 0; j < prod; j++){
+            double rowTot = 0;
+            cout << j + 1 << "          ";
 
-                cout << rowTot << endl;
-                GraTot += rowTot;
-            }
-
-            cout << "Total: ";
             for (int k = 0; k < salePer; k++){
-                double colTot = 0;
-                for (int j; j < prod; j++){
-                    colTot += sales[j][k];
-                }
-                cout << colTot << "    ";
+                cout << sales[j][k] << "        ";
+                rowTot += sales[j][k];
             }
 
-            cout << GraTot << endl;
+            cout << rowTot << endl;
+            GraTot += rowTot;
+        }
 
-            cout << endl << "Would u like to repeat? (y/n): ";
-            cin >> cho;
-        }while (cho == 'y' || cho == 'Y');
+        cout << "-------------------------------------------------------------\n";
+
+        cout << "Total      ";
+        for (int k = 0; k < salePer; k++){
+            double colTot = 0;
+            for (int j = 0; j < prod; j++){
+                colTot += sales[j][k];
+            }
+            cout << colTot << "        ";
+        }
+
+        cout << GraTot << endl;
+
+        cout << endl << "Would u like to repeat? (y/n): ";
+        cin >> cho;
+
+    }while (cho == 'y' || cho == 'Y');
 
     return 0;
 }
