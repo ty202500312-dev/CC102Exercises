@@ -34,6 +34,7 @@ int main (){
         }
 
         cout << " Average: ";
+        cout << endl << "--------------------------------------------------" << endl;
         for (int i = 0; i < studs; i++){
             cout << endl << i + 1 << "        ";
 
@@ -49,3 +50,4 @@ int main (){
 
     return 0;
 }
+
